@@ -1,7 +1,5 @@
 # My Neovim Configuration
 
-This repository contains my neovim configuration.
-
 ## Core Plugins Used
 
 * **`nvim-treesitter`** - Syntax highlighting and code parsing.
