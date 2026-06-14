@@ -4,11 +4,8 @@ return {
     name = "moonfly",
     lazy = false,
     priority = 1000,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "moonfly",
-    },
+    config = function()
+      vim.cmd([[colorscheme moonfly]])
+    end,
   },
 }
