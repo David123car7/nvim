@@ -25,6 +25,8 @@
 | `Space` + `f` + `f` | Normal Mode | Find Project Files | Triggers a floating prompt modal to filter and load files by name instantly. |
 | `Space` + `f` + `g` | Normal Mode | Live Grep Text Search | Crawls through all codebase paths to find matching textual string rows live. |
 | `Ctrl` + `t` | Global | Toggle Shell Panel | Slides out or masks an interactive persistent operating terminal dock line. |
+| `Ctrl` + `s` | Normal Mode | Save File | Writes your active modifications to the disk instantly. |
+| `Ctrl` + `s` | Insert Mode | Save File | Writes modifications to the disk silently while keeping you in typing mode. |
 | `j` + `k` | Insert Mode | Escape Mode | Exits text composition safely to Normal navigation context immediately. |
 
 ### Active Terminal Window Mappings

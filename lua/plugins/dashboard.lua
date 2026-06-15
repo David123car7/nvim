@@ -30,6 +30,12 @@ return {
               key = "n",
             },
             {
+              icon = "    ",
+              desc = "Open Config                     ",
+              action = "Telescope find_files cwd=~/.config/nvim",
+              key = "c",
+            },
+            {
               icon = "󰒲    ",
               desc = "Lazy Packages                   ",
               action = "Lazy",

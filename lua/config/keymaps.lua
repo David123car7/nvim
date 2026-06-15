@@ -5,6 +5,8 @@
 vim.g.mapleader = " "
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
+vim.keymap.set("i", "<C-s>", "<cmd>w<cr><ESC>gi", { desc = "Save file" })
 
 --Explorer
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
