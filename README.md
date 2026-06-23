@@ -28,6 +28,8 @@
 | `Ctrl` + `s` | Normal Mode | Save File | Writes your active modifications to the disk instantly. |
 | `Ctrl` + `s` | Insert Mode | Save File | Writes modifications to the disk silently while keeping you in typing mode. |
 | `j` + `k` | Insert Mode | Escape Mode | Exits text composition safely to Normal navigation context immediately. |
+| `K` | Normal Mode | LSP Hover | Opens a floating documentation window previewing the item under the cursor. |
+| `Space + n + f` | Normal Mode | Generate Documentation | Triggers Neogen to parse the code structure and insert template boilerplates. |
 
 ### Active Terminal Window Mappings
 
