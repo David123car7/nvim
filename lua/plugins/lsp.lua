@@ -9,8 +9,17 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "clangd", "omnisharp" },
+        ensure_installed = { "clangd" },
       })
+
+      -- Install the Roslyn C# server (used by roslyn.nvim) automatically
+      local registry = require("mason-registry")
+      registry.refresh(function()
+        local ok, pkg = pcall(registry.get_package, "roslyn-language-server")
+        if ok and not pkg:is_installed() then
+          pkg:install()
+        end
+      end)
 
       -- cmp capabilities for every server
       vim.lsp.config("*", {
@@ -26,7 +35,7 @@ return {
         },
       })
 
-      vim.lsp.enable({ "clangd", "omnisharp" })
+      vim.lsp.enable("clangd")
     end,
   },
 }

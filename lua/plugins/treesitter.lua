@@ -5,7 +5,10 @@ return {
     build = ":TSUpdate",
     config = function()
       local ts = require("nvim-treesitter")
-      local parsers = { "c", "cpp", "lua", "vim", "markdown" }
+      local parsers = {
+        "c", "cpp", "lua", "vim", "markdown",
+        "c_sharp", "html", "css", "json", "yaml", "sql",
+      }
 
       ts.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
       ts.install(parsers)
