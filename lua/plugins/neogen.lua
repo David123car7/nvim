@@ -1,6 +1,7 @@
 return {
-	{
-		"danymat/neogen",
-		config = true,
-	},
+  {
+    "danymat/neogen",
+    cmd = "Neogen",
+    config = true,
+  },
 }

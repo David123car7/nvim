@@ -1,25 +1,22 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        build = ":TSUpdate",
-        config = function()
-        local ts = require('nvim-treesitter')
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      local ts = require("nvim-treesitter")
+      local parsers = { "c", "cpp", "lua", "vim", "markdown" }
 
-        ts.setup {
-            install_dir = vim.fn.stdpath('data') .. '/site',
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-        }
-        ts.install({
-            "c",
-            "cpp",
-            "lua",
-            "vim",
-            "markdown"
-        })
+      ts.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
+      ts.install(parsers)
+
+      -- Highlighting must be started per buffer on the main branch
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = parsers,
+        callback = function()
+          pcall(vim.treesitter.start)
         end,
-    },
+      })
+    end,
+  },
 }

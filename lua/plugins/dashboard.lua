@@ -4,7 +4,7 @@ return {
     event = "VimEnter",
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
     config = function()
-        vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#4a4a4a" })
+      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#4a4a4a" })
       require("dashboard").setup({
         theme = "doom",
         config = {
@@ -51,11 +51,9 @@ return {
 
           footer = function()
             local stats = require("lazy").stats()
-            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
             return {
-              "","","","","","","","","","","","","","","",
-              "","","","","","","","","","","","","","","",
-              "⚡ Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+              "⚡ Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
             }
           end,
         },
