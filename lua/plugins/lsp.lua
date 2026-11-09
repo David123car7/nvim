@@ -12,12 +12,14 @@ return {
         ensure_installed = { "clangd" },
       })
 
-      -- Install the Roslyn C# server (used by roslyn.nvim) automatically
+      -- Tools not known to mason-lspconfig: Roslyn (C#), debugger and formatter
       local registry = require("mason-registry")
       registry.refresh(function()
-        local ok, pkg = pcall(registry.get_package, "roslyn-language-server")
-        if ok and not pkg:is_installed() then
-          pkg:install()
+        for _, name in ipairs({ "roslyn-language-server", "netcoredbg", "csharpier" }) do
+          local ok, pkg = pcall(registry.get_package, name)
+          if ok and not pkg:is_installed() then
+            pkg:install()
+          end
         end
       end)
 

@@ -2,7 +2,7 @@
 return {
   {
     "seblyng/roslyn.nvim",
-    ft = { "cs" },
+    ft = { "cs", "razor" }, -- razor covers .razor and .cshtml
     dependencies = { "mason-org/mason.nvim" },
     opts = {
       broad_search = false, -- find the .sln/.csproj by walking up from the file
