@@ -12,3 +12,13 @@ vim.opt.signcolumn = "yes" -- Fixed sign column so the text doesn't jump
 vim.opt.tabstop = 2 -- A tab counts for 2 spaces
 vim.opt.shiftwidth = 2 -- Spaces used for each indent step
 vim.opt.expandtab = true -- Use spaces instead of tabs
+
+-- Docker Compose files need this filetype for the compose language server to attach
+vim.filetype.add({
+  filename = {
+    ["compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["docker-compose.yml"] = "yaml.docker-compose",
+  },
+})

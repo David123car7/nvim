@@ -9,7 +9,12 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "clangd" },
+        ensure_installed = {
+          "clangd",
+          "dockerls",
+          "docker_compose_language_service",
+          "yamlls",
+        },
       })
 
       -- Tools not known to mason-lspconfig: Roslyn (C#), debugger and formatter
@@ -38,6 +43,26 @@ return {
       })
 
       vim.lsp.enable("clangd")
+
+      -- Buffer-local LSP keymaps, set when a server attaches
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
+        callback = function(args)
+          local function map(lhs, rhs, desc)
+            vim.keymap.set("n", lhs, rhs, { buffer = args.buf, desc = desc })
+          end
+          map("gd", vim.lsp.buf.definition, "Go to definition")
+          map("gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("gr", vim.lsp.buf.references, "References")
+          map("gi", vim.lsp.buf.implementation, "Go to implementation")
+          map("gy", vim.lsp.buf.type_definition, "Go to type definition")
+          map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("<leader>cd", vim.diagnostic.open_float, "Line diagnostics")
+          map("[d", function() vim.diagnostic.jump({ count = -1 }) end, "Previous diagnostic")
+          map("]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
+        end,
+      })
     end,
   },
 }

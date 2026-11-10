@@ -7,7 +7,7 @@ return {
       local ts = require("nvim-treesitter")
       local parsers = {
         "c", "cpp", "lua", "vim", "markdown",
-        "c_sharp", "html", "css", "json", "yaml", "sql",
+        "c_sharp", "dockerfile", "html", "css", "json", "yaml", "sql",
       }
 
       ts.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
