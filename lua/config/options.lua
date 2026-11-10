@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 

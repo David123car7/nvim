@@ -8,6 +8,9 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 * **`nvim-treesitter`** - Syntax highlighting and code parsing.
 * **`moonfly`** - Color scheme.
 * **`dashboard-nvim`** - Start-screen greeter with shortcut actions.
+* **`bufferline.nvim`** - Tab bar across the top for open files, with modified markers and diagnostics.
+* **`dropbar.nvim`** - Breadcrumbs above the code (`file > class > method`).
+* **`indent-blankline.nvim`** - Indent guides along nested blocks.
 * **`lualine.nvim`** - Status bar (mode, branch, diagnostics, attached LSP servers).
 * **`which-key.nvim`** - Pop-up that shows available keyboard shortcuts as you type.
 * **`nvim-tree.lua`** - Sidebar file explorer.
@@ -18,6 +21,7 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 * **`roslyn.nvim`** - C# / ASP.NET Core language server (Roslyn), including Razor and `.cshtml`.
 * **`nvim-cmp`** (+ `LuaSnip`, `cmp-*` sources) - Autocomplete menu.
 * **`conform.nvim`** - Format on save (`csharpier` for C#, LSP formatting as fallback).
+* **`nvim-autopairs`** - Closes brackets and quotes as you type.
 * **`neogen`** - Generates documentation comments.
 
 ### Debugging and testing
@@ -29,6 +33,10 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 * **`project.nvim`** - Detects project roots (`.git`, `*.sln`, `*.csproj`) and remembers projects.
 * **`persistence.nvim`** - Per-project sessions (buffers, splits, cursor positions).
 * **`gitsigns.nvim`** - Git change markers, hunk actions and blame.
+* **`diffview.nvim`** - Side-by-side diffs, file history and merge-conflict view.
+* **`lazygit`** (via `toggleterm`) - Full git UI in a floating terminal. Requires the `lazygit` program installed on the system.
+* **`trouble.nvim`** - Problems panel for diagnostics, references and symbols.
+* **`aerial.nvim`** - Outline sidebar with the classes and methods of the current file.
 
 ---
 
@@ -51,6 +59,27 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 | `j` + `k` | Insert | Escape | Leaves Insert mode. |
 | `Space` + `?` | Normal | Buffer Keymaps | which-key popup with the buffer-local mappings. |
 | `Space` + `n` + `f` | Normal | Generate Documentation | Neogen inserts a doc-comment template. |
+
+### Tabs (bufferline)
+
+| Shortcut | Mode | Action | Description |
+| :--- | :--- | :--- | :--- |
+| `Shift` + `h` / `Shift` + `l` | Normal | Previous / Next Tab | Cycles through open files. |
+| `Space` + `b` + `d` | Normal | Close Tab | Closes the current buffer. |
+| `Space` + `b` + `o` | Normal | Close Other Tabs | Closes every tab except the current one. |
+| `Space` + `b` + `p` | Normal | Pick Tab | Shows a letter on each tab; press it to jump there. |
+| `Space` + `;` | Normal | Pick Breadcrumb | Selects a symbol in the breadcrumb bar (dropbar) to jump to. |
+| `Space` + `o` | Normal | Outline | Toggles the symbol outline sidebar (aerial). |
+
+### Problems Panel (trouble)
+
+| Shortcut | Mode | Action | Description |
+| :--- | :--- | :--- | :--- |
+| `Space` + `x` + `x` | Normal | Project Problems | Errors and warnings of the whole project. |
+| `Space` + `x` + `X` | Normal | File Problems | Errors and warnings of the current file only. |
+| `Space` + `x` + `r` | Normal | References Panel | LSP references of the symbol under the cursor. |
+| `Space` + `x` + `s` | Normal | Symbols Panel | Symbols of the current file. |
+| `Space` + `x` + `q` | Normal | Quickfix List | Toggles the quickfix list. |
 
 ### Sessions
 
@@ -94,6 +123,16 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 | `Space` + `h` + `s` | Normal | Stage Hunk | Stages just that hunk. |
 | `Space` + `h` + `r` | Normal | Reset Hunk | Discards the hunk's changes. |
 | `Space` + `h` + `b` | Normal | Blame Line | Shows who last changed the line. |
+
+### Source Control (lazygit, diffview)
+
+| Shortcut | Mode | Action | Description |
+| :--- | :--- | :--- | :--- |
+| `Space` + `g` + `g` | Normal | Lazygit | Opens or hides lazygit in a floating window. |
+| `Space` + `g` + `d` | Normal | Diff View | Side-by-side diff of all changed files. |
+| `Space` + `g` + `h` | Normal | File History | Git history of the current file. |
+| `Space` + `g` + `H` | Normal | Project History | Git history of the whole project. |
+| `Space` + `g` + `q` | Normal | Close Diff View | Closes the diff or history view. |
 
 ### Debugging (nvim-dap)
 
