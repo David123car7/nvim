@@ -24,6 +24,12 @@ return {
               key = "g",
             },
             {
+              icon = "󰉋    ",
+              desc = "Projects                        ",
+              action = "Telescope projects",
+              key = "p",
+            },
+            {
               icon = "    ",
               desc = "New File                        ",
               action = "ene | startinsert",

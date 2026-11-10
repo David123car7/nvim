@@ -60,6 +60,18 @@ Neovim setup for C / C++ and C# (ASP.NET Core Web API) with Docker, managed with
 | `Space` + `?` | Normal | Buffer Keymaps | which-key popup with the buffer-local mappings. |
 | `Space` + `n` + `f` | Normal | Generate Documentation | Neogen inserts a doc-comment template. |
 
+### Start Screen (dashboard)
+
+| Shortcut | Mode | Action | Description |
+| :--- | :--- | :--- | :--- |
+| `f` | Dashboard | Find Files | Telescope file search. |
+| `g` | Dashboard | Find Text | Telescope live grep. |
+| `p` | Dashboard | Projects | Lists your remembered projects; picking one opens it. |
+| `n` | Dashboard | New File | Opens an empty buffer in Insert mode. |
+| `c` | Dashboard | Open Config | Browse the Neovim config files. |
+| `l` | Dashboard | Lazy Packages | Opens the plugin manager. |
+| `q` | Dashboard | Quit | Closes Neovim. |
+
 ### Tabs (bufferline)
 
 | Shortcut | Mode | Action | Description |
